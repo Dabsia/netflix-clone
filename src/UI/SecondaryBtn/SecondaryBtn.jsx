@@ -2,11 +2,11 @@ import React from "react";
 import "./SecondaryBtn.css";
 import { useNavigate } from "react-router-dom";
 
-const SecondaryBtn = ({ path }) => {
+const SecondaryBtn = () => {
   const navigate = useNavigate();
 
   const redirect = () => {
-    navigate("/netflix-show");
+    navigate("/sign-in");
   };
   return (
     <button className="secondaryBtn" onClick={redirect}>
