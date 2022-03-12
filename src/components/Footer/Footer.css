@@ -1,0 +1,10 @@
+.links{
+    height: 40vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding:  40px 3rem;
+}
+.link1, .link2, .link3, .link4{
+    display: flex;
+    
