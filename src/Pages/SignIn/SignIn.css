@@ -1,5 +1,5 @@
 .signIn__wrapper{
-    height: 110vh;
+    height: 138.8vh;
     background: url('../../Assets/netflix.jpg'), linear-gradient(black, black); 
     background-repeat: no-repeat;
     background-position:  center;
@@ -7,7 +7,7 @@
     opacity: .99;
 }
 .overlay_div{
-    height: 110vh;
+    height: 138.8vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, .5);
     z-index: -2;
@@ -51,6 +51,9 @@
     background-color: #333;
     color: #fff;
     font-size: 16px;
+    
+}
+.email__Input, .password__Input{
     margin-bottom: 20px;
 }
 .last__input{
@@ -90,10 +93,12 @@
 .help:hover{
     text-decoration: underline;
 }
-/* .facebook{
-    
-    
-} */
+.pass{
+    color: #fff;
+}
+.facebook{
+    height: 20px;   
+}
 .facebook__icon{
     font-size: 20px;
     color: #1773EA;
@@ -128,4 +133,35 @@
 }
 .learnMore{
     color: #1773EA;
+}
+.signInfooter{
+    height: 30vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.errorMesage{
+    color: var(--primary_color);
+}
+
+@media screen and (max-width: 1000px) {
+/*     
+    .signIn__Content{
+        background-color: rgba(0,0,0, .8);
+        border-radius: 5px;
+        height: 90%;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .signin__box{
+        width: 80%;
+        height: 80%;
+    }
+    .nav{
+        display: none;
+    } */
 }

@@ -1,21 +1,66 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
 const Form = () => {
+  const navigate = useNavigate();
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Please enter a valid email or phone number.")
+        .required(),
+      password: Yup.string()
+        .min(4)
+        .max(60)
+        .required("Your password must contain between 4 and 60 characters."),
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+
+      navigate("/netflix-show");
+    },
+  });
+
   return (
-    <form className="form__field">
-      <input
-        className="form__input"
-        type="email"
-        name="email"
-        placeholder="Email or Phone Number"
-      />
-      <input
-        className="form__input last__input"
-        type="password"
-        name="password"
-        placeholder="Password"
-      />
+    <form className="form__field" onSubmit={formik.handleSubmit}>
+      {/* Email */}
+      <div className="email__Input">
+        <input
+          className="form__input"
+          type="email"
+          name="email"
+          placeholder="Email or Phone Number"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          onBlur={formik.handleBlur}
+        />
+        {formik.errors.email && formik.touched.email ? (
+          <span className="errorMesage">{formik.errors.email}</span>
+        ) : null}
+      </div>
+
+      {/* password */}
+      <div className="password__Input last__input">
+        <input
+          className="form__input "
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          onBlur={formik.handleBlur}
+        />
+        {formik.errors.password && formik.touched.password ? (
+          <span className="errorMesage">{formik.errors.password}</span>
+        ) : null}
+      </div>
+
       <button className="btn__submit" type="submit">
         Sign In
       </button>
