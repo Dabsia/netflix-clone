@@ -6,15 +6,15 @@ import * as Yup from "yup";
 
 const Form = () => {
   const navigate = useNavigate();
+  // Formik validation
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
+    // Yup validation
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Please enter a valid email or phone number.")
-        .required(),
+      email: Yup.string().email().required("Please enter a valid email."),
       password: Yup.string()
         .min(4)
         .max(60)
@@ -35,7 +35,7 @@ const Form = () => {
           className="form__input"
           type="email"
           name="email"
-          placeholder="Email or Phone Number"
+          placeholder="Enter Email"
           onChange={formik.handleChange}
           value={formik.values.email}
           onBlur={formik.handleBlur}
@@ -51,7 +51,7 @@ const Form = () => {
           className="form__input "
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter Password"
           onChange={formik.handleChange}
           value={formik.values.password}
           onBlur={formik.handleBlur}
